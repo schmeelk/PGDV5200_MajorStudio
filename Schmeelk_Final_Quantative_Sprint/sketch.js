@@ -1,353 +1,208 @@
 var circles = [];
 var xcount = 1480;
+var xaxis = 150; //212
+var circle_x = xaxis + 10; // 370;
+var circle_y = 665;
+var metevent = xaxis - 60;
+var lifeevent = xaxis - 45;
+var xevent = xaxis - 10;
+var canvasWidth = 1000;
+var canvasHeight = 20*172*3;
 
 function setup() {
-  createCanvas(1000, 800);
-  //there's a "b" for every "a"
-  //line(x,y-12,x, y-80);
-  //key
-  //painting
-/*
-  circles.push(new Circle(50, 150, color('rgb(0,0,255)')));//painting 519
-  // fill('hsb(160, 100%, 50%)');
-  //     text(" Met Collection Start", 60, 150);
-  //     stroke(0);
- //text("Painting", 60, 150);
-  //book
-  circles.push(new Circle(665+(15*1), 370, color('rgb(0,247,255)')));
-  //roundel
-  circles.push(new Circle(665-(15*5), 370, color('black')));
-  //block
-  circles.push(new Circle(665-(15*7), 370, color('#0f0'))); //green
-  //drawing
-  circles.push(new Circle(665-(15*25), 370, color('red'))); 
-  //print
-  circles.push(new Circle(665-(15*30), 370, color('purple'))); //green
-  */
-
+  //createCanvas(1000, 800);
+  createCanvas(canvasWidth, canvasHeight);
   var acount = 0;
   var bcount = 0;
   var ccount = 0;
   var ycount = 0;
   var prints = new Object(); // or just {}
-prints['1480'] = 	1;
-  circles.push(new Circle(665-(15*30), 370, color('purple'))); //green
-  //circles.push(new Circle(665, 370, color('rgb(0,0,255)')));//painting 510  blue
-prints['1485'] = 	170;
-  circles.push(new Circle(665-(15*25), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*10), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*11), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*12), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*13), color('purple'))); //green
-  circles.push(new Circle(665-(15*25), 370 - (20*14), color('purple'))); //green
-prints['1490'] = 	1;
-  circles.push(new Circle(665-(15*20), 370, color('purple'))); //green
-prints['1491'] = 	2;
-  circles.push(new Circle(665-(15*19), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*19), 370 - (20*1), color('purple'))); //green
-prints['1492'] = 	6;
-  circles.push(new Circle(665-(15*18), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*18), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*18), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*18), 370 - (20*3), color('purple'))); //green
-prints['1493'] = 	7;
-  circles.push(new Circle(665-(15*17), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*17), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*17), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*17), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*17), 370 - (20*4), color('purple'))); //green
-prints['1495'] = 	7;
-  circles.push(new Circle(665-(15*15), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*15), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*15), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*15), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*15), 370 - (20*4), color('purple'))); //green
-prints['1496'] = 	17;
-  circles.push(new Circle(665-(15*14), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*14), 370 - (20*8), color('purple'))); //green
-prints['1497'] = 	13;
-  circles.push(new Circle(665-(15*13), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*13), 370 - (20*8), color('purple'))); //green
-prints['1498'] = 	17;
-  circles.push(new Circle(665-(15*12), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*12), 370 - (20*8), color('purple'))); //green
-prints['1499'] = 	8;
-  circles.push(new Circle(665-(15*11), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*11), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*11), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*11), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*11), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*11), 370 - (20*5), color('purple'))); //green
-prints['1500'] = 	11;
-  circles.push(new Circle(665-(15*10), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*10), 370 - (20*7), color('purple'))); //green
-prints['1501'] = 	17;
-  circles.push(new Circle(665-(15*9), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*9), 370 - (20*8), color('purple'))); //green
-prints['1502'] = 	10;
-  circles.push(new Circle(665-(15*8), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*8), 370 - (20*7), color('purple'))); //green
-prints['1503'] = 	34;
-  circles.push(new Circle(665-(15*7), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665-(15*7), 370 - (20*10), color('purple'))); //green
-prints['1504'] = 	21;
-  circles.push(new Circle(665-(15*6), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665-(15*6), 370 - (20*9), color('purple'))); //green
-prints['1505'] = 	9;
-  circles.push(new Circle(665-(15*5), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*5), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*5), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*5), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*5), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*5), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*5), 370 - (20*6), color('purple'))); //green
-prints['1507'] = 	4;
-  circles.push(new Circle(665-(15*3), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*3), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*3), 370 - (20*2), color('purple'))); //green
-prints['1508'] = 	28;
-  circles.push(new Circle(665-(15*2), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665-(15*2), 370 - (20*10), color('purple'))); //green
-prints['1509'] = 	31;
-  circles.push(new Circle(665-(15*1), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665-(15*1), 370 - (20*10), color('purple'))); //green
-prints['1510'] = 	41;
-  circles.push(new Circle(665-(15*0), 370, color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*10), color('purple'))); //green
-  circles.push(new Circle(665-(15*0), 370 - (20*11), color('purple'))); //green
-prints['1511'] = 	56;
-  circles.push(new Circle(665+(15*1), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*10), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*11), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*12), color('purple'))); //green
-  circles.push(new Circle(665+(15*1), 370 - (20*13), color('purple'))); //green
-prints['1512'] = 	41;
-  circles.push(new Circle(665+(15*2), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*9), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*10), color('purple'))); //green
-  circles.push(new Circle(665+(15*2), 370 - (20*11), color('purple'))); //green
-prints['1513'] = 	18;
-  circles.push(new Circle(665+(15*3), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665+(15*3), 370 - (20*9), color('purple'))); //green
-prints['1514'] = 	19;
-  circles.push(new Circle(665+(15*4), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*7), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*8), color('purple'))); //green
-  circles.push(new Circle(665+(15*4), 370 - (20*9), color('purple'))); //green
-prints['1515'] = 	15;
-  circles.push(new Circle(665+(15*5), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*5), 370 - (20*7), color('purple'))); //green
-prints['1516'] = 	11;
-  circles.push(new Circle(665+(15*6), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*6), 370 - (20*7), color('purple'))); //green
-prints['1517'] = 	1;
-  circles.push(new Circle(665+(15*7), 370, color('purple'))); //green
-prints['1518'] = 	9;
-  circles.push(new Circle(665+(15*8), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*8), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*8), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*8), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*8), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*8), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*8), 370 - (20*6), color('purple'))); //green
-prints['1519'] = 	9;
-  circles.push(new Circle(665+(15*9), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*9), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*9), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*9), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*9), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*9), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*9), 370 - (20*6), color('purple'))); //green
-prints['1520'] = 	6;
-  circles.push(new Circle(665+(15*10), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*10), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*10), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*10), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*10), 370 - (20*4), color('purple'))); //green
-prints['1521'] = 	7;
-  circles.push(new Circle(665+(15*11), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*11), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*11), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*11), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*11), 370 - (20*4), color('purple'))); //green
-prints['1522'] = 	1;
-  circles.push(new Circle(665+(15*12), 370, color('purple'))); //green
-prints['1523'] = 	10;
-  circles.push(new Circle(665+(15*13), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*1), color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*2), color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*3), color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*4), color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*5), color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*6), color('purple'))); //green
-  circles.push(new Circle(665+(15*13), 370 - (20*7), color('purple'))); //green
-prints['1524'] = 	1;
-  circles.push(new Circle(665+(15*14), 370, color('purple'))); //green
-prints['1526'] = 	2;
-  circles.push(new Circle(665+(15*16), 370, color('purple'))); //green
-  circles.push(new Circle(665+(15*16), 370 - (20*1), color('purple'))); //green
- 
+  //prints['1480'] = 	1;
+  circles.push(new Circle(circle_y-(15*30), circle_x, color('purple')));
+  //prints['1485'] = 	170; //drawing 1 under it 
+  for (var i=1; i<=170; i++) {
+   circles.push(new Circle(circle_y-(15*25), circle_x + (20*i), color('purple')));
+  }
+  //prints['1490'] = 	1;
+  circles.push(new Circle(circle_y-(15*20), circle_x + (20 * 1), color('purple'))); // drawing (red) under it
+  //prints['1491'] = 	2;
+  circles.push(new Circle(circle_y-(15*19), circle_x, color('purple')));
+  for (var i=1; i<=1; i++) {
+    circles.push(new Circle(circle_y-(15*19), circle_x + (20*i), color('purple')));
+  }
+  //prints['1492'] = 	6;
+  circles.push(new Circle(circle_y-(15*18), circle_x, color('purple')));
+  for (var i=1; i<=5; i++) {
+    circles.push(new Circle(circle_y-(15*18), circle_x + (20*i), color('purple')));
+  }
+  //prints['1493'] = 	7;
+  circles.push(new Circle(circle_y-(15*17), circle_x, color('purple')));
+  for (var i=1; i<=5; i++) {
+    circles.push(new Circle(circle_y-(15*17), circle_x + (20*i), color('purple')));
+  }
+  //prints['1495'] = 	7;
+  circles.push(new Circle(circle_y-(15*15), circle_x, color('purple')));
+  for (var i=1; i<=6; i++) {
+    circles.push(new Circle(circle_y-(15*15), circle_x + (20*i), color('purple')));
+  }
+  //prints['1496'] = 	17;
+  circles.push(new Circle(circle_y-(15*14), circle_x, color('purple')));
+  for (var i=1; i<=16; i++) {
+    circles.push(new Circle(circle_y-(15*14), circle_x + (20*i), color('purple')));
+  }
+  //prints['1497'] = 	13;
+  circles.push(new Circle(circle_y-(15*13), circle_x, color('purple')));
+  for (var i=1; i<=12; i++) {
+    circles.push(new Circle(circle_y-(15*13), circle_x + (20*i), color('purple')));
+  }
+  //prints['1498'] = 	17;
+  circles.push(new Circle(circle_y-(15*12), circle_x, color('purple')));
+  for (var i=1; i<=16; i++) {
+  circles.push(new Circle(circle_y-(15*12), circle_x + (20*i), color('purple')));
+  }
+  //prints['1499'] = 	8;
+  circles.push(new Circle(circle_y-(15*11), circle_x, color('purple')));
+  for (var i=1; i<=7; i++) {
+  circles.push(new Circle(circle_y-(15*11), circle_x + (20*i), color('purple')));
+  }
+  //prints['1500'] = 	11;
+   circles.push(new Circle(circle_y-(15*10), circle_x, color('purple')));
+  for (var i=1; i<=10; i++) {
+  circles.push(new Circle(circle_y-(15*10), circle_x + (20*i), color('purple')));
+  }
+  //prints['1501'] = 17;
+  circles.push(new Circle(circle_y-(15*9), circle_x, color('purple')));
+  for (var i=1; i<=16; i++) {
+  circles.push(new Circle(circle_y-(15*9), circle_x + (20*i), color('purple')));
+  }
+  //prints['1502'] = 	10;
+  circles.push(new Circle(circle_y-(15*8), circle_x, color('purple')));
+  for (var i=1; i<=9; i++) {
+  circles.push(new Circle(circle_y-(15*8), circle_x + (20*i), color('purple')));
+  }
+  //prints['1503'] = 	34;
+  //circles.push(new Circle(circle_y-(15*7), circle_x, color('purple')));
+  for (var i=2; i<=35; i++) { //2 green under
+  circles.push(new Circle(circle_y-(15*7), circle_x + (20*i), color('purple')));
+  }
+  //prints['1504'] = 	21;
+  circles.push(new Circle(circle_y-(15*6), circle_x, color('purple')));
+  for (var i=1; i<=20; i++) {
+  circles.push(new Circle(circle_y-(15*6), circle_x + (20*i), color('purple')));
+  }
+  //prints['1505'] = 	9;
+  //circles.push(new Circle(circle_y-(15*5), circle_x, color('purple')));
+  for (var i=1; i<=9; i++) { //1 under it
+  circles.push(new Circle(circle_y-(15*5), circle_x + (20*i), color('purple')));
+  }
+  //prints['1507'] = 	4;
+  circles.push(new Circle(circle_y-(15*3), circle_x, color('purple')));
+  for (var i=1; i<=3; i++) {
+  circles.push(new Circle(circle_y-(15*3), circle_x + (20*i), color('purple')));
+  }
+  //prints['1508'] = 	28;
+  circles.push(new Circle(circle_y-(15*2), circle_x, color('purple')));
+  for (var i=1; i<=27; i++) {
+  circles.push(new Circle(circle_y-(15*2), circle_x + (20*i), color('purple')));
+  }
+  //prints['1509'] = 	31;
+  circles.push(new Circle(circle_y-(15*1), circle_x, color('purple')));
+  for (var i=1; i<=30; i++) {
+  circles.push(new Circle(circle_y-(15*1), circle_x + (20*i), color('purple')));
+  }
+  //prints['1510'] = 	41;
+  for (var i=1; i<=41; i++) { //1 under it
+  circles.push(new Circle(circle_y-(15*0), circle_x + (20*i), color('purple')));
+  }
+  //prints['1511'] = 	56;
+  for (var i=1; i<=56; i++) { //1 under it
+  circles.push(new Circle(circle_y+(15*1), circle_x + (20*i), color('purple')));
+  }
+  //prints['1512'] = 	41;
+  circles.push(new Circle(circle_y+(15*2), circle_x, color('purple')));
+  for (var i=1; i<=40; i++) {
+  circles.push(new Circle(circle_y+(15*2), circle_x + (20*i), color('purple')));
+  }
+  //prints['1513'] = 	18;
+  circles.push(new Circle(circle_y+(15*3), circle_x, color('purple')));
+  for (var i=1; i<=17; i++) {
+  circles.push(new Circle(circle_y+(15*3), circle_x + (20*i), color('purple')));
+  }
+  //prints['1514'] = 	19;
+  circles.push(new Circle(circle_y+(15*4), circle_x, color('purple')));
+  for (var i=1; i<=18; i++) {
+  circles.push(new Circle(circle_y+(15*4), circle_x + (20*i), color('purple')));
+  }
+  //prints['1515'] = 	15;
+  circles.push(new Circle(circle_y+(15*5), circle_x, color('purple')));
+  for (var i=1; i<=14; i++) {
+  circles.push(new Circle(circle_y+(15*5), circle_x + (20*i), color('purple')));
+  }
+  //prints['1516'] = 	11;
+  for (var i=1; i<=11; i++) { //1 under it
+  circles.push(new Circle(circle_y+(15*6), circle_x + (20*i), color('purple')));
+  }
+  //prints['1517'] = 	1;
+  circles.push(new Circle(circle_y+(15*7), circle_x, color('purple')));
+  //prints['1518'] = 	9;
+  circles.push(new Circle(circle_y+(15*8), circle_x, color('purple')));
+  for (var i=1; i<=8; i++) {
+  circles.push(new Circle(circle_y+(15*8), circle_x + (20*i), color('purple')));
+  }
+  //prints['1519'] = 	9;
+  for (var i=1; i<=19; i++) { //1 under it
+  circles.push(new Circle(circle_y+(15*9), circle_x + (20*i), color('purple')));
+  }
+ //prints['1520'] = 	6;
+  circles.push(new Circle(circle_y+(15*10), circle_x, color('purple')));
+  for (var i=1; i<=5; i++) {
+   circles.push(new Circle(circle_y+(15*10), circle_x + (20*i), color('purple')));
+  }
+  //prints['1521'] = 	7;
+  circles.push(new Circle(circle_y+(15*11), circle_x, color('purple')));
+  for (var i=1; i<=6; i++) {
+  circles.push(new Circle(circle_y+(15*11), circle_x + (20*i), color('purple')));
+  }
+  //prints['1522'] = 	1;
+  circles.push(new Circle(circle_y+(15*12), circle_x + (20*1), color('purple'))); //drawing (red) under it
+  //prints['1523'] = 	10;
+  circles.push(new Circle(circle_y+(15*13), circle_x, color('purple')));
+  for (var i=1; i<=9; i++) {
+  circles.push(new Circle(circle_y+(15*13), circle_x + (20*i), color('purple')));
+  }
+//prints['1524'] = 	1;
+  circles.push(new Circle(circle_y+(15*14), circle_x, color('purple')));
+//prints['1526'] = 	2;
+  circles.push(new Circle(circle_y+(15*16), circle_x, color('purple')));
+  for (var i=1; i<=1; i++) {
+  circles.push(new Circle(circle_y+(15*16), circle_x + (20*1), color('purple')));
+ }
+
   var life = 48;
   var year = xcount - 1;
   //year 1511
   console.log("b height/2" + height/2);
   var painting = ["1510","1516","1519"];
-  circles.push(new Circle(665, 370, color('rgb(0,0,255)')));//painting 510  blue
-  circles.push(new Circle(755, 370, color('rgb(0,0,255)')));//painting 516
-  circles.push(new Circle(800, 370, color('rgb(0,0,255)')));//painting 519
+  circles.push(new Circle(circle_y, circle_x, color('rgb(0,0,255)')));//painting 510  blue
+  circles.push(new Circle(755, circle_x, color('rgb(0,0,255)')));//painting 516
+  circles.push(new Circle(800, circle_x, color('rgb(0,0,255)')));//painting 519
   var block = ["1503","1503"];
-  circles.push(new Circle(665-(15*7), 370, color('#0f0'))); //green
-  circles.push(new Circle(665-(15*7), 350, color('#0f0'))); 
+  circles.push(new Circle(circle_y-(15*7), circle_x, color('#0f0'))); //green
+  circles.push(new Circle(circle_y-(15*7), circle_x + (20*1), color('#0f0'))); 
   var roundel = ["1505"];
-  circles.push(new Circle(665-(15*5), 370, color('black'))); 
+  circles.push(new Circle(circle_y-(15*5), circle_x, color('rgb(0,247,255)'))); //light blue 
   var book = ["1511"];
-  //circles.push(new Circle(665+(15*1), 370, color('red'))); 
-  circles.push(new Circle(665+(15*1), 370, color('rgb(0,247,255)'))); 
+  //circles.push(new Circle(circle_y+(15*1), circle_x, color('rgb(0,247,255)'))); 
+  circles.push(new Circle(circle_y+(15*1), circle_x, color('rgb(255, 204, 0)'))); //yellow
   var drawing = ["1485","1490","1493","1498","1501","1512","1521","1522"];
-  circles.push(new Circle(665-(15*25), 370, color('red'))); 
-  circles.push(new Circle(665-(15*20), 370, color('red'))); 
-  circles.push(new Circle(665-(15*17), 370, color('red'))); 
-  circles.push(new Circle(665-(15*12), 370, color('red'))); 
-  circles.push(new Circle(665-(15*9), 370, color('red'))); 
-  circles.push(new Circle(665+(15*2), 370, color('red'))); 
-  circles.push(new Circle(665+(15*11), 370, color('red'))); 
-  circles.push(new Circle(665+(15*12), 370, color('red'))); 
+  circles.push(new Circle(circle_y-(15*25), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y-(15*20), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y-(15*17), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y-(15*12), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y-(15*9), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y+(15*2), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y+(15*11), circle_x, color('red'))); 
+  circles.push(new Circle(circle_y+(15*12), circle_x, color('red'))); 
 
 
   for (var a = 200; a < width & life > 0; a += 15) {
@@ -360,15 +215,15 @@ prints['1526'] = 	2;
          
 
    
-  if(  year == 1511 ){
-         console.log("year 1511");
-    }
-  else{
+  //if(  year == 1511 ){
+    //     console.log("year 1511");
+    //}
+  //else{
          //circles.push(new Circle(a, b, 0)); 
-  }
-  var block = ["1503","1503"];
-  var roundel = ["1505"];
-  var painting = ["1510","1516","1519"];
+  //}
+  //var block = ["1503","1503"];
+  //var roundel = ["1505"];
+  //var painting = ["1510","1516","1519"];
 
       }
       bcount++;
@@ -378,33 +233,34 @@ prints['1526'] = 	2;
   console.log(circles.length);
   console.log("a count " + acount + " b count " + bcount + " circle count " + ccount);
   console.log("width " + width + " height " + height);
-       //text(year.toString() + " Married Agnes Frey", x, y);
   textSize(10);
   //var text = createDiv("1494 Married Agnes Frey <a href='http://i.imgur.com/WXaUlrK.gif'>read</a>");
   var text = createDiv("1494 <a href='http://www.durerart.com/Marriage.html'>Married Agnes Frey</a>");
-  text.position(370, 450);
+  //text.position(circle_x, 450);
+  //text.position(circle_x, lifeevent);
+  text.position(400, lifeevent);
   //text.style("font-family", "monospace");
   //text.style("background-color", "#FF0000");
   text.style("color", "#000000");
   text.style("font-size", "8pt");
   //text.style("padding", "10px");
-  var metstart = createDiv("1480 Met <a href='https://www.metmuseum.org/toah/hd/durr/hd_durr.htm'>Collection</a> Start");
-  metstart.position(155, 470);
+  var metstart = createDiv("1480 Met <a href='https://www.metmuseum.org/toah/hd/durr/hd_durr.htm'>Dürer Collection</a> Start (Age 9)");
+  metstart.position(155, metevent);
   metstart.style("color", "#18542E");
   metstart.style("font-size", "8pt");
 
-  var birth = createDiv("1471 <a href='https://www.google.com/maps/place/Nuremberg,+Germany/@49.436009,10.9929532,11z/data=!3m1!4b1!4m5!3m4!1s0x479f57aeb5b61cd3:0xdd5daf85a98c21b7!8m2!3d49.4521018!4d11.0766654'>Birth</a>");
-  birth.position(75, 450);
+  var birth = createDiv("1471 <a href='https://www.google.com/maps/place/Nuremberg,+Germany/@49.436009,10.9929532,11z/data=!3m1!4b1!4m5!3m4!1s0x479f57aeb5b61cd3:0xdd5daf85a98c21b7!8m2!3d49.4521018!4d11.076circle_y4'>Birth</a>");
+  birth.position(75, lifeevent);
   birth.style("color", "#000000");
   birth.style("font-size", "8pt");
 
 var max = createDiv("1471 <a href='https://en.wikipedia.org/wiki/Maximilian_I,_Holy_Roman_Emperor'>Maximilian I</a> Patron");
-  max.position(640, 450);
+  max.position(640, lifeevent);
   max.style("color", "#000000");
   max.style("font-size", "8pt");
 
-  var metend = createDiv("1526 Met <a href='https://www.metmuseum.org/join-and-give/donate'> Collection </a> Stop");
-  metend.position(850, 470);
+  var metend = createDiv("1526 Met <a href='https://www.metmuseum.org/join-and-give/donate'> Dürer Collection </a> Stop (Age 55)");
+  metend.position(850, metevent);
   metend.style("color", "#18542E");
   metend.style("font-size", "8pt");
 
@@ -428,36 +284,56 @@ function draw() {
   fill(0);
  
    //line(x,y-12,x, y-80);
-  //key
+  //KEY
   //painting
+  var key = xaxis + 30;
   textSize(15);
-  circles.push(new Circle(50, 150, color('rgb(0,0,255)')));//painting 519
+  circles.push(new Circle(50, key + 5, color('rgb(0,0,255)')));//painting 519
   fill(0);
-  text(" Painting", 60, 155);
+  text(" Painting", 60, key + 10);// 155);
   //stroke(0);
   //book
   textSize(15);
   fill(0);
-  circles.push(new Circle(50, 170, color('rgb(0,247,255)')));
-  text(" Book", 60, 175);
+  circles.push(new Circle(50, key + 25, color('rgb(255, 204, 0)'))); //yellow
+  text(" Book", 60, key + 30);
   //roundel
   textSize(15);
-  circles.push(new Circle(50, 190, color('black')));
-  text(" Roundel", 60, 195);
+  circles.push(new Circle(50, key + 45, color('rgb(0,247,255)'))); //light blue
+  text(" Roundel", 60, key + 50);
   //block
   textSize(15);
-  circles.push(new Circle(50, 210, color('#0f0'))); //green
-  text(" Block", 60, 215);
+  circles.push(new Circle(50, key + 65, color('#0f0'))); //green
+  text(" Block", 60, key + 70);
   //drawing
   textSize(15);
-  circles.push(new Circle(50, 230, color('red')));
-  text(" Drawing", 60, 235);
+  circles.push(new Circle(50, key + 85, color('red')));
+  text(" Drawing", 60, key + 90);
   //print
   textSize(15);
-  circles.push(new Circle(50, 250, color('purple'))); //green
-  text(" Print", 60, 255);
- 
-  // Draw the x axis
+  circles.push(new Circle(50, key + 105, color('purple')));
+  text(" Print", 60, key + 110);
+
+  // Draw y axis label
+   //HERE IS Y Label 
+  textStyle(BOLD);
+  noStroke();
+  textAlign(LEFT);
+  textSize(9);
+  var c = color('black');
+  fill(c);
+  text("y-axis:", 110, key + 220);
+  text("Item Count", 87, key + 230);
+
+  text("y-axis:", 110, key + 1220);
+  text("Item Count", 87, key + 1230);
+
+  text("y-axis:", 110, key + 2220);
+  text("Item Count", 87, key + 2230);
+
+  text("y-axis:", 110, key + 3220);
+  text("Item Count", 87, key + 3230);
+
   stroke(0);
   var bottom = 500-margin;
   // just the line
@@ -466,113 +342,48 @@ function draw() {
   textAlign(CENTER);
 
   // Draw the y axis
+  //HERE X TICS
   stroke(0);
   var bottom = 500-margin;
-  line(margin + 110, bottom -30 , margin + 110, 75);
+  //line(margin + 110, bottom -30 , margin + 110, 75);
   noStroke();
   textAlign(CENTER);
-
   textSize(10);
   var life = 48;
   var year = xcount - 1;
+  var y = xevent+10;
   for(var x=200; x<width && life > 0 ; x+=15){
-    var y = bottom;
     life--;
     noStroke();
     fill(0);
     if( ( year%5 == 0 || year%10 == 0 ) && year < 1527){
-       text(year.toString(), x, y);
+       text(year.toString(), x, xevent);
     }
     stroke(0);
     if(x > 201){
-    line(x,y-12,x, y-30);
+    line(x,y,x, y-10);
     }
     year++;
   }
 
  // y-axis
-  //circles.push(new Circle(665+(15*1), 370, color('purple'))); //green
-  //circles.push(new Circle(665+(15*1), 370 - (20*1), color('purple'))); //green
+  //circles.push(new Circle(circle_y+(15*1), circle_x, color('purple')));
+  //circles.push(new Circle(circle_y+(15*1), circle_x + (20*1), color('purple')));
   var bottom = 500-90;
-  line(margin + 110, bottom -30 , margin + 110, 75);
- 
-  for(var y=0; y < (15*20) ; y+=20){
+  var count = 1;
+  // HERE Y Labels
+  for(var y=0; y < (172*20) ; y+=20){ //backwards
      stroke(0);
      fill(0);
-     line(margin + 110,  370 - y , margin +102, 370 - y);
-      textSize(9);
-     if( y == 0 ){
-       fill(0);
-       text("1", margin + 95, 372-y);
-     stroke(0);
+     if(count < 172){
+       line(margin + 110,  circle_x + y , margin +102, circle_x + y); // HERE Y TICS
+       textSize(9);
+       text(count.toString(), margin + 95, circle_x + 3 + y);
      }
-     if( y == 20 ){
-       fill(0); 
-       text("2", margin + 95, 372-y);
-     }
-      if( y == 40 ){
-       fill(0); 
-       text("4", margin + 95, 372-y);
-     }
-      if( y == 60 ){
-       fill(0); 
-       text("6", margin + 95, 372-y);
-     }
-
-      if( y == 80 ){
-       fill(0); 
-       text("7", margin + 95, 372-y);
-     }
-      if( y == 100 ){
-       fill(0); 
-       text("8", margin + 95, 372-y);
-     }
-
-       if( y == 120 ){
-       fill(0); 
-       text("9", margin + 95, 372-y);
-     }
-      if( y == 140 ){
-       fill(0); 
-       text("10 - 11", margin + 85, 372-y);
-     }
-
-      if( y == 160 ){
-       fill(0); 
-       text("13 - 17", margin + 85, 372-y);
-     }
-
-      if( y == 180 ){
-       fill(0); 
-       text("18 - 21", margin + 85, 372-y);
-     }
-
-      if( y == 200 ){
-       fill(0); 
-       text("28 - 34", margin + 84, 372-y);
-     }
-
-      if( y == 220 ){
-       fill(0); 
-       text("41", margin + 95, 372-y);
-     }
-
-      if( y == 240 ){
-       fill(0); 
-       text("44", margin + 95, 372-y);
-     }
-   
-      if( y == 260 ){
-       fill(0); 
-       text("56", margin + 95, 372-y);
-     }
-   
-      if( y == 280 ){
-       fill(0); 
-       text("170", margin + 95, 372-y);
-     }
+     count++;
 
     }
+  line(margin + 110, circle_x , margin + 110, (circle_x + (170*20)));
 
  // Draw life
   life = 58;
@@ -581,7 +392,8 @@ function draw() {
   textSize(10);
   var year = 1471;
   for(var x=100; x<width && life > 0 ; x+=15){
-    var y = bottom;
+    //var y = bottom;
+    var y = xaxis;
     life--;
     noStroke();
     fill(0);
@@ -590,21 +402,21 @@ if(  year == 1471  ){
        //text(year.toString() + " Birth", x, y);
        //console.log("Birth x " + x + " y " + y); 
        stroke(0);
-       line(x,y-12,x, y-80);
+       line(x,y,x, lifeevent + 12);
        //console.log("Birth x " + x + " y " + y);
     }
     if(  year == 1528  ){
-       text(year.toString() + " End", x, y);
+       text(year.toString() + " End", x, lifeevent + 10);
        stroke(0);
-       line(x,y-12,x, y-80);
+       line( x,y, x, lifeevent + 12);
     }
     fill(0);
 
 if(  year == 1480  ){
        fill('hsb(142, 84%, 65%)');
-       //text(year.toString() + " Met Collection Start", x, y+20);
+       //text(year.toString() + " Met Dürer Collection Start (Dürer was age 9.)", x, y+20);
        stroke(0);
-       line(x-20,y+10,x-20, y-80);
+       line(x-20,y,x-20, metevent + 12);
     }
     fill(0);
 
@@ -613,7 +425,7 @@ if(  year == 1526  ){
        //text(year.toString() + " Met Collection Stop", x, y+20);
        //console.log("Met c stop x " + x + " y " + y); 
        stroke(0);
-       line(x-20,y+10,x-20, y-80);
+       line(x-20,y,x-20, metevent + 12);
     }
     fill(0);
     if(  year == 1494  ){
@@ -621,7 +433,7 @@ if(  year == 1526  ){
        //text.position(190, 50);
        //text(year.toString() + " Married Agnes Freyi", x, y);
        stroke(0);
-       line(x-20,y-12,x-20, y-80);
+       line(x-20,y,x-20, lifeevent + 12);
        //console.log(" agnes freyi x " + x + " y " + y);
     }
 
@@ -630,29 +442,28 @@ if(  year == 1526  ){
        //text(year.toString() + " Maximilian I is Patron", x,y);
        //console.log("Max x " + x + " y " + y);
        stroke(0);
-       line(x-20,y-12,x-20, y-80);
+       line(x-20,y,x-20, lifeevent + 12);
     }
     year++;
     end = x;
     fill(0);
   }
+
   stroke(0);
-  // just the line
-  //line(margin + 110,bottom-30,width - 80,bottom-30);
-  bottom = 500 - 90;
   //x-axis line
-  line(100,bottom-30,end,bottom-30);
+  line(100,xaxis,end,xaxis); //HERE IS X line
+  //HERE IS X Label 
+  textStyle(BOLD);
+  noStroke();
+  textAlign(LEFT);
+  textSize(9);
+  var c = color('black');
+  fill(c);
+  text("x-axis: Year", end -10, xaxis + 15);
+  //bottom = 500 - 90;
+  //line(100,bottom-30,end,bottom-30); //HERE IS X line
   noStroke();
   textAlign(CENTER);
-
-  /*  var y = height-margin+30;
-    x = map(i,0, allYears.length,margin, width-margin);
-    noStroke();
-    fill(0);
-    text(allYears[i].year, x, y);
-    stroke(0);
-    line(x,y-12,x, y-30);
-*/
 
 }
 
@@ -664,20 +475,6 @@ function Circle(x, y, c) {
   this.show = function() {
     fill(this.c);
     noStroke();
-      //1490
-   if (this.x == 665-(15*20) && this.y==370 && this.c == color('red')){
-    arc(10, 10, this.x, this.y,  0, PI + HALF_PI, OPEN);
-    //ellipse(this.x, this.y, 7, 7);
-
-   }
-   else if (this.x == 665+(15*12) && this.y == 370 && this.c == color('red') ){
-    //1522
-    ellipse(this.x, this.y, 7, 7);
-
-   }
-   else{
     ellipse(this.x, this.y, 10, 10);
-   }
-    //console.log("showing");
   }
 }
