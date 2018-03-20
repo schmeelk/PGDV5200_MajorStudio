@@ -69,7 +69,7 @@ function changeEarlier() {
 }
 
 function changeLater() {
-  if(currentYear >= 1528)
+  if(currentYear >= 1525)
      return;
   currentYear = currentYear + 1
   var y = currentYear - durStart;
