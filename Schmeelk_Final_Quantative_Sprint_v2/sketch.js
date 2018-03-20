@@ -254,7 +254,7 @@ function setup() {
   birth.style("color", "#000000");
   birth.style("font-size", "8pt");
 
-var max = createDiv("1471 <a href='https://en.wikipedia.org/wiki/Maximilian_I,_Holy_Roman_Emperor'>Maximilian I</a> Patron");
+var max = createDiv("1512 <a href='https://en.wikipedia.org/wiki/Maximilian_I,_Holy_Roman_Emperor'>Maximilian I</a> Patron");
   max.position(640, lifeevent);
   max.style("color", "#000000");
   max.style("font-size", "8pt");
