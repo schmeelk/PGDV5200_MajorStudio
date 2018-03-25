@@ -1,0 +1,83 @@
+  body {
+    color: black;
+    margin-left: 10%; 
+    margin-right: 10%;
+    background-color: #ffff00; 
+    font-family: Georgia, "Times New Roman", Times, serif;
+    padding-left: 11em }
+  div.box {
+    border: double black;
+    border-width: thick;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 3em;
+    text-align: center;
+    width: 100%;
+    background: #dddddd} 
+  box2 {
+    border: solid;
+    border-width: thin;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 3em;
+    width: 100%;
+    background: white } 
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif, "Comic Sans MS";
+    color: navy;
+    text-align: center;
+    border-bottom: thin solid 
+     }
+  h2{
+    font-family: Geneva, Arial,
+          SunSans-Regular, sans-serif ;
+    color: #003366;    
+    margin-bottom: -1em;
+     }
+  h3{
+    font-family: Arial,
+          SunSans-Regular, sans-serif ;
+    color: black;
+    margin-bottom: -1em;
+    }
+  h4{
+    font-family: "Comic Sans MS", Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif ;
+    color:#dddddd ;
+    margin-bottom: 1em;}
+  ul.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0em;
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+  ul.navbar li {
+    background: #dddddd; 
+    margin: 0.5em 0;
+    text-align: center;
+    padding: 0.3em;
+    border: solid black}
+  ul.navbar a {
+    font-family: WildWest, Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif;
+    font-size: 95%; 
+    text-align: center;
+    text-decoration: none}
+  a:link {
+    color:navy }
+  a:visited {
+    color: #002299}
+  ul.in li{
+    background: #dddddd;
+    margin: 0.1em;
+    text-align: left;
+    padding: 0.1em;
+    border: none}
+  address {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: thin dotted }
+
