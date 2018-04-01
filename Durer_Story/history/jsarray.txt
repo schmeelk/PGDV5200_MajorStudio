@@ -1,0 +1,41 @@
+var fs = require("fs");
+var text = fs.readFileSync("./mytext.txt");
+var textByLine = text.split("\n")
+
+async mode:
+
+var fs = require("fs");
+fs.readFile("./mytext.txt", function(text){
+    var textByLine = text.split("\n")
+});
+
+
+https://stackoverflow.com/questions/34857458/reading-local-text-file-into-a-javascript-array
+
+
+
+
+sync mode:
+
+var fs = require("fs");
+var text = fs.readFileSync("./mytext.txt");
+var textByLine = text.split("\n")
+
+async mode:
+
+var fs = require("fs");
+fs.readFile("./mytext.txt", function(text){
+    var textByLine = text.split("\n")
+});
+
+UPDATE
+
+As of at least Node 6, readFileSync returns a Buffer, so it must first be converted to a string in order for split to work:
+
+var text = fs.readFileSync("./mytext.txt").toString('utf-8');
+
+Or
+
+var text = fs.readFileSync("./mytext.txt", "utf-8");
+
+
