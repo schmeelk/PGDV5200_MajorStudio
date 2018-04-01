@@ -21,6 +21,7 @@ function preload() {
      durTextYear[i] = yearText; 
      console.log(yearText);
   }
+  prepareDurImages();
 }
 
 function setup() {
@@ -39,7 +40,7 @@ function prepareDurImages(){
      var durerAllYearImages = [];
      for(k=0; k < durerRows.length; k++){
        var toget = durerRows[k];
-       var eImg = loadImage("images/"+ toget.get(2));  // Load the image
+       var eImg = loadImage("images/"+ toget.get(1));  // Load the image
        append(durerAllYearImages, eImg);
      }
      console.log("Found year ["+ year + "] durerAllYearImages.length: " + durerAllYearImages.length);
@@ -49,10 +50,9 @@ function prepareDurImages(){
 
 
 function draw() {
-  if(drawTrue >= drawTrueMax){
-     return;
-  }
-  prepareDurImages();
+  //if(drawTrue >= drawTrueMax){
+  //   return;
+  //}
   var durImg;
   console.log("DrawTrue count: " + String(drawTrue));
   var durImageWidth = 10; 
