@@ -15,7 +15,7 @@ var durEnd = 1526;
 var durAge = 9;
 
 function preload() {
-  tableDurer = loadTable('durercut.csv', 'csv', 'header');
+  tableDurer = loadTable('durer.csv', 'csv', 'header');
   //for(var i = durStart; i < durEnd; i++){
     // yearText = loadStrings('history/'+String(i)+'.txt');
      //durTextYear[i] = yearText; 
