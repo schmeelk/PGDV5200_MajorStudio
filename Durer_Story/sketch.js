@@ -16,6 +16,7 @@ var durAge = 9;
 
 function preload() {
   tableDurer = loadTable('durer.csv', 'csv', 'header');
+  console.log("Preparing dur images");
   prepareDurImages();
 }
 
