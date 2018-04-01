@@ -15,7 +15,7 @@ var durEnd = 1526;
 var durAge = 9;
 
 function preload() {
-  tableDurer = loadTable('durer.csv', 'csv', 'header');
+  tableDurer = loadTable('./durer.csv', 'csv', 'header');
   console.log("Loading Dur Images colums[" + tableDurer.getColumnCount() + "] rows [" + tableDurer.getRowCount() + "]");
   prepareDurImages();
 }
