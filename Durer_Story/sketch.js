@@ -6,7 +6,7 @@ var currentYear;
 var durerRows;
 var itemRows;
 var fr = 10;
-var drawTrueMax = 15;
+var drawTrueMax = 4;
 var drawTrue = 0;
 var margin = 150;
 var file;
@@ -30,7 +30,7 @@ function preload() {
 function setup() {
   //createCanvas(720, 400);
   prepareDurImages();
-  var height = 2000;
+  var height = 8000;
   createCanvas(windowWidth, height);
   frameRate(fr);
   console.log("Here we are.");
@@ -55,7 +55,6 @@ function prepareDurImages(){
      console.log("Found year ["+ year + "] durerAllYearImages.length: " + durerAllYearImages.length);
      allDurImages[year] = durerAllYearImages;
     }
-
 }
 
 
@@ -64,13 +63,25 @@ function draw() {
   if(drawTrue >= drawTrueMax){
      return;
   }
+  for(var p = 0; p < 900000000; p++){
+       p = p;
+  }
+
   console.log("DrawTrue count: " + String(drawTrue));
   drawTrue = drawTrue + 1;
-
-  var durImageY = 225;
-  var durImageWidth = 10;
+  var imagesperrow = 6;
+  var durImageY = 80;
+  var durImageX = 100;
   for (var year = durStart; year < durEnd; year++) {
     var haveDur = allDurImages[year];
+    durImageY = durImageY + 40;
+    durImageX = 100;
+    text(String(year), 1000, durImageY);
+    //var div = createDiv('');
+    //div.html( String(year), false );
+    //div.style('z-index', '5000');
+    //div.position(1000, durImageY);
+    durImageY = durImageY + 40;
     if(haveDur.length == 0){
        console.log("No Dur image this year");
     }else{
@@ -78,15 +89,19 @@ function draw() {
      console.log("Number of Dur images this year "+durImg.length);
      for(var i = 0; i < durImg.length; i++){
        var img = durImg[i];
-       image(durImg[i], 200, durImageY, durImg[i].width/5, durImg[i].height/5);
-       //image(img, 0,0);
-       console.log(img);
-       durImageY = durImageY + img.height/5 + 10;
+       if (imagesperrow > 0 ){
+          image(durImg[i], durImageX, durImageY, durImg[i].width/3, durImg[i].height/3);
+          durImageX = durImageX + img.width/3 + 10;
+       }else{
+          image(durImg[i], durImageX, durImageY, durImg[i].width/3, durImg[i].height/3);
+          durImageY = durImageY + img.height/3 + 10;
+          durImageX = 100;
+          imagesperrow = 6; 
+       }
+       imagesperrow = imagesperrow - 1;
       }
     }
   }
-  console.log("Image issue");
-  //image(durImgT, 0, 0);
 
 }
 
