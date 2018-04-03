@@ -76,7 +76,7 @@ function draw() {
     var haveDur = allDurImages[year];
     durImageY = durImageY + 40;
     durImageX = 100;
-    //text(String(year), 1000, durImageY);
+    text(String(year), 1000, durImageY);
     //var div = createDiv('');
     //div.html( String(year), false );
     //div.style('z-index', '5000');
