@@ -6,7 +6,7 @@ var currentYear;
 var durerRows;
 var itemRows;
 var fr = 10;
-var drawTrueMax = 4;
+var drawTrueMax = 5;
 var drawTrue = 0;
 var margin = 150;
 var file;
@@ -76,7 +76,7 @@ function draw() {
     var haveDur = allDurImages[year];
     durImageY = durImageY + 40;
     durImageX = 100;
-    text(String(year), 1000, durImageY);
+    //text(String(year), 1000, durImageY);
     //var div = createDiv('');
     //div.html( String(year), false );
     //div.style('z-index', '5000');
