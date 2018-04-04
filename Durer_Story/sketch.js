@@ -6,7 +6,7 @@ var currentYear;
 var durerRows;
 var itemRows;
 var fr = 10;
-var drawTrueMax = 5;
+var drawTrueMax = 9;
 var drawTrue = 0;
 var margin = 150;
 var file;
