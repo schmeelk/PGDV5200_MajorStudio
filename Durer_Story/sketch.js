@@ -1,6 +1,3 @@
-var durImg;  // Declare variable 'img'.
-var durImgT;  // Declare variable 'img'.
-var table;
 var tableDurer;
 var currentYear;
 var durerRows;
@@ -76,7 +73,8 @@ function draw() {
     var haveDur = allDurImages[year];
     durImageY = durImageY + 40;
     durImageX = 100;
-    text(String(year), 1000, durImageY);
+    if(drawTrueMax == 9)
+      text(String(year), 1000, durImageY);
     //var div = createDiv('');
     //div.html( String(year), false );
     //div.style('z-index', '5000');
@@ -90,10 +88,12 @@ function draw() {
      for(var i = 0; i < durImg.length; i++){
        var img = durImg[i];
        if (imagesperrow > 0 ){
-          image(durImg[i], durImageX, durImageY, durImg[i].width/3, durImg[i].height/3);
+          if(drawTrueMax == 9)
+            image(durImg[i], durImageX, durImageY, durImg[i].width/3, durImg[i].height/3);
           durImageX = durImageX + img.width/3 + 10;
        }else{
-          image(durImg[i], durImageX, durImageY, durImg[i].width/3, durImg[i].height/3);
+          if(drawTrueMax == 9)
+            image(durImg[i], durImageX, durImageY, durImg[i].width/3, durImg[i].height/3);
           durImageY = durImageY + img.height/3 + 10;
           durImageX = 100;
           imagesperrow = 6; 
@@ -103,5 +103,9 @@ function draw() {
     }
   }
 
+  console.log("Dur images x: " + durImageX + " and dur image y: " + durImageY);
+
 }
+
+
 
