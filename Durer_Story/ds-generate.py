@@ -8,6 +8,8 @@ year = 0
 lifebirthyear = 1471
 lifedeathyear = 1528
 lastprocessedyear = 1471
+livinglocation = 'Nuremberg'
+
 td = 3
 tagline = ''
 imgsize = 2
@@ -24,7 +26,7 @@ index.write("\r\n")
 
 #Durer birth
 index.write("<hr> <hr>")
-index.write("<p> <br> <h2> 1471 </h2> <br> <br> \r\n")
+index.write("<p> <br> <h2> 1471 </h2> <br> <br> <Nuremberg> \r\n")
 index.write("<life> May 21 Born in Nuremberg, Germany </life> </p> <br>\r\n")
 index.write("<hr><hr><br>")
 
@@ -52,19 +54,26 @@ with open('ds.csv') as csvfile:
              tagline = ''
              td = 4 
              index.write("</table><br><br>\r\n")
-             #end of timeline
+             #end last year table
              dline = open('dhistory/'+(lastprocessedyear)+'.txt').read().splitlines()
              durLife = random.choice(dline)
              if durLife != '':
                 index.write("<br><life> " + durLife + "</life><br><br>")
              wline = open('history/'+lastprocessedyear+'.txt').read().splitlines()
              durWorld = random.choice(wline)
-             index.write("<br><world> " + durWorld + "</world><br><br>")
+             index.write("<br><world> " + durWorld + "</world><br>")
+             #end last year history 
+             if row['Living'] != livinglocation:
+                index.write("</"+livinglocation+"> \r\n") #end old living location
+                livinglocation = row['Living']
+                index.write("<"+livinglocation+"> \r\n") #start new living location
+             index.write("<br><br>\r\n")
+             #new year  
              yearcount = 0
              index.write("<p> <hr> <br> <h2> " + year + " </h2> <br>\r\n")
              index.write("<a id=\"" + year + "\"></a><br></p>\r\n")
              index.write("<table>\r\n")
-         elif year != row['Object Begin Date']: #year == 0 
+         elif year != row['Object Begin Date']: # only when year == 0 
              year = row['Object Begin Date']
              index.write("<p> <br> <h2> " + year + " </h2> <br>\r\n")
              index.write("<a id=\"" + year + "\"></a><br></p><br>\r\n")
@@ -95,8 +104,38 @@ with open('ds.csv') as csvfile:
          td = td - 1
          yearcount = yearcount + 1
 
+lastprocessedyear = year
+year = row['Object Begin Date']
+if td == 0:
+  index.write("</tr>\r\n")
+elif td == 1:
+  index.write("<td></td></tr>\r\n")
+  tagline = tagline + "<td> </td> "
+elif td == 2:
+  index.write("<td></td><td></td></tr>\r\n")
+  tagline = tagline + "<td> </td> <td> </td> "
+elif td == 3:
+  index.write("<td></td><td></td><td></td></tr>\r\n")
+  tagline = tagline + "<td> </td> <td> </td> <td> </td> "
+index.write("<tr> " + tagline + "</tr>\r\n")
+tagline = ''
+td = 4
+index.write("</table><br><br>\r\n")
+#end last year table
+dline = open('dhistory/'+(lastprocessedyear)+'.txt').read().splitlines()
+durLife = random.choice(dline)
+if durLife != '':
+  index.write("<br><life> " + durLife + "</life><br><br>")
+wline = open('history/'+lastprocessedyear+'.txt').read().splitlines()
+durWorld = random.choice(wline)
+index.write("<br><world> " + durWorld + "</world><br>")
+#end last year history 
+if row['Living'] != livinglocation:
+     index.write("</"+livinglocation+"> \r\n") #end old living location
+     livinglocation = row['Living']
+livinglocation = row['Living']
 
-
+index.write("\r\n")
 index.write("<a id=\"bottom\"></a>\r\n")
 index.write("</center> </body></html> \r\n")
 
