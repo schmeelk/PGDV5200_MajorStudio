@@ -1,0 +1,123 @@
+<!DOCTYPE html><html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>D&uuml;rer Story</title> 
+
+<link rel="stylesheet" href="./css/durer.css">
+<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="./css/normalize.css" type="text/css">
+	<link rel="stylesheet" href="./css/style.css" type="text/css">
+	<link rel="stylesheet" href="./css/examples.css" type="text/css">
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+	<script type="text/javascript" src="./js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/lib/highlight.pack.js"></script>
+	<script type="text/javascript" src="./js/lib/modernizr.custom.min.js"></script>
+	<script type="text/javascript" src="./js/examples.js"></script>
+	
+	<script type="text/javascript" src="./js/lib/greensock/TweenMax.min.js"></script>
+	<script type="text/javascript" src="./scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script type="text/javascript" src="./scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="./scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+</head>
+<body>
+<form class="move">
+<fieldset>
+<legend>Timeline</legend>
+<timeline>
+<a href="#top">Top</a>
+<br>
+<br><a href="#1480">1480</a>
+<br><a href="#1481">&#8212;</a>
+<a href="#1482">&#8212;</a>
+<a href="#1483">&#8212;</a>
+<a href="#1484">&#8212;</a>
+<br><a href="#1485">1485</a>
+<br><a href="#1486">&#8212;</a>
+<a href="#1487">&#8212;</a>
+<a href="#1488">&#8212;</a>
+<a href="#1489">&#8212;</a>
+<br><a href="#1490">1490</a>
+<br><a href="#1491">&#8212;</a>
+<a href="#1492">&#8212;</a>
+<a href="#1493">&#8212;</a>
+<a href="#1494">&#8212;</a>
+<br><a href="#1495">1495</a>
+<br><a href="#1496">&#8212;</a>
+<a href="#1497">&#8212;</a>
+<a href="#1498">&#8212;</a>
+<a href="#1499">&#8212;</a>
+<br><a href="#1500">1500</a>
+<br><a href="#1501">&#8212;</a>
+<a href="#1502">&#8212;</a>
+<a href="#1503">&#8212;</a>
+<a href="#1504">&#8212;</a>
+<br><a href="#1505">1505</a>
+<br><a href="#1506">&#8212;</a>
+<a href="#1507">&#8212;</a>
+<a href="#1508">&#8212;</a>
+<a href="#1509">&#8212;</a>
+<br><a href="#1510">1510</a>
+<br><a href="#1511">&#8212;</a>
+<a href="#1512">&#8212;</a>
+<a href="#1513">&#8212;</a>
+<a href="#1514">&#8212;</a>
+<br><a href="#1515">1515</a>
+<br><a href="#1516">&#8212;</a>
+<a href="#1517">&#8212;</a>
+<a href="#1518">&#8212;</a>
+<a href="#1519">&#8212;</a>
+<br><a href="#1520">1520</a>
+<br><a href="#1521">&#8212;</a>
+<a href="#1522">&#8212;</a>
+<a href="#1523">&#8212;</a>
+<a href="#1524">&#8212;</a>
+<br><a href="#1525">1525</a>
+<br><a href="#1526">&#8212;</a>
+<a href="#1527">&#8212;</a>
+<a href="#1528">&#8212;</a>
+<br>
+<br><a href="#bottom">Bottom</a>
+</timeline>
+</fieldset>
+</form>
+<script type="text/javascript" src="./js/lib/greensock/plugins/ScrollToPlugin.min.js"></script>
+<script>
+// init controller
+var controller = new ScrollMagic.Controller();
+
+// build tween
+var tween = TweenMax.from("#animate", 0.5, {autoAlpha: 0, scale: 0.7});
+
+// build scene
+var scene = new ScrollMagic.Scene({triggerElement: "a#top", duration: 200, triggerHook: "onLeave"})
+		.setTween(tween)
+		.addIndicators() // add indicators (requires plugin)
+		.addTo(controller);
+
+// change behaviour of controller to animate scroll instead of jump
+	controller.scrollTo(function (newpos) {
+	TweenMax.to(window, 0.5, {scrollTo: {y: newpos}});
+
+	});
+
+//  bind scroll to anchor links
+$(document).on("click", "a[href^='#']", function (e) {
+	var id = $(this).attr("href");
+	if ($(id).length > 0) {
+        e.preventDefault();
+
+	// trigger scroll
+	controller.scrollTo(id);
+
+	// if supported by the browser we can even update the URL.
+	if (window.history && window.history.pushState) {
+		history.pushState("", document.title, id);
+	}
+	}
+	});
+</script>
+
