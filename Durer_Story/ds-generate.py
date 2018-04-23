@@ -9,13 +9,14 @@ lifebirthyear = 1471
 lifedeathyear = 1528
 lastprocessedyear = 1471
 livinglocation = 'Nuremberg'
+sectionid = 1
 
 td = 3
 tagline = ''
 imgsize = 2
 index = open("index.html","w+")
 
-with open("script.txt") as script:
+with open("header.txt") as script:
  for line in script:
    index.write(line)
 
@@ -26,7 +27,8 @@ index.write("\r\n")
 
 #Durer birth
 index.write("<hr> <hr>")
-index.write("<p> <br> <h2> 1471 </h2> <br> <br> <Nuremberg> \r\n")
+#index.write("<p> <br> <h2> 1471 </h2> <br> <br> <section id=\"section-1\"> <Nuremberg> \r\n")
+index.write("<p> <br> <h2> 1471 </h2> <br> <br> <section> <Nuremberg> \r\n")
 index.write("<life> May 21 Born in Nuremberg, Germany </life> </p> <br>\r\n")
 index.write("<hr><hr><br>")
 
@@ -65,18 +67,22 @@ with open('ds.csv') as csvfile:
              #end last year history 
              if row['Living'] != livinglocation:
                 index.write("</"+livinglocation+"> \r\n") #end old living location
+                index.write("</section>\r\n")
                 livinglocation = row['Living']
                 index.write("<"+livinglocation+"> \r\n") #start new living location
+                sectionid = sectionid + 1
+                #index.write("<section id=\"section-"+str(sectionid)+"\">>\r\n")
+                index.write("<section >\r\n")
              index.write("<br><br>\r\n")
              #new year  
              yearcount = 0
+             index.write("<a id=\"y" + year + "\"></a><br></p>\r\n")
              index.write("<p> <hr> <br> <h2> " + year + " </h2> <br>\r\n")
-             index.write("<a id=\"" + year + "\"></a><br></p>\r\n")
              index.write("<table>\r\n")
          elif year != row['Object Begin Date']: # only when year == 0 
              year = row['Object Begin Date']
+             index.write("<a id=\"y" + year + "\"></a><br></p><br>\r\n")
              index.write("<p> <br> <h2> " + year + " </h2> <br>\r\n")
-             index.write("<a id=\"" + year + "\"></a><br></p><br>\r\n")
              index.write("<table>\r\n")
          if td == 0:
             index.write("</tr>\r\n")
@@ -133,11 +139,16 @@ index.write("<br><world> " + durWorld + "</world><br>")
 if row['Living'] != livinglocation:
      index.write("</"+livinglocation+"> \r\n") #end old living location
      livinglocation = row['Living']
-livinglocation = row['Living']
+     index.write("</section>\r\n")
 
 index.write("\r\n")
 index.write("<a id=\"bottom\"></a>\r\n")
-index.write("</center> </body></html> \r\n")
+index.write("</center> \r\n")
+#with open("footer.txt") as script:
+# for line in script:
+#   index.write(line)
+
+index.write(" </body></html> \r\n")
 
 print "Count is " + str(itemcount)
 
