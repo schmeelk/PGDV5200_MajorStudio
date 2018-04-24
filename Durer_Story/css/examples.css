@@ -33,14 +33,8 @@
 	white-space: nowrap;
 	font-size: 0;  /* fix for spaces between inline block divs */
 }
-#example-wrapper.horizontal div {
-	font-size: 3px;
-}
 #example-wrapper .scrollContent, #example-wrapper.horizontal .scrollContent {
 	font-size: 0;
-}
-#example-wrapper .scrollContent div {
-	font-size: 3px;
 }
 #example-wrapper section {
 }
@@ -368,10 +362,6 @@ form.move {
 }
 html.touch form.move {
 	top: 120px;
-}
-form > div, form > fieldset > div {
-	margin: 10px 0 10px 0;
-	display: block;
 }
 form .slider {
 	min-width: 199px;
@@ -882,9 +872,6 @@ a.viewsource:before {
 	font-family: "Source Sans Pro", Arial, sans-serif;
 	font-style: normal;
 	font-weight: normal;
-}
-#parallax1 > div, #parallax2 > div, #parallax3 > div {
-	-webkit-transform: translateZ(0);-webkit-backface-visibility: hidden;-webkit-perspective: 1000;
 }
 
 .dynamicContent #content {

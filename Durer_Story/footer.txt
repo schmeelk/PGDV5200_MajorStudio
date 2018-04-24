@@ -1,0 +1,33 @@
+		<footer>
+			<div class="blog-masthead">
+				<div class="container">
+						<nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
+
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse2" aria-controls="navbarCollapse2" aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarCollapse2">
+								<ul class="navbar-nav mr-auto">
+									<li class="nav-item active">
+										<a class="nav-link" data-section href="#!section-1">Section 1</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-section href="#!section-2">Section 2</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-section href="#!section-3">Section 3</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-section href="#!section-4">Section 4</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-section href="#!section-5">Section 5</a>
+									</li>
+
+								</ul>
+							</div>
+						</nav>
+				</div>
+			</div>
+		</footer>
+

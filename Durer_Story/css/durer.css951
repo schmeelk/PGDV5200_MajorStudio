@@ -10,6 +10,18 @@ div.sticky {
     transform: rotate(-90deg);
     transform-origin: -2% 5%; 
 }
+div.sticky2{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 150px;
+    font-family: 'Old Standard TT', serif; Georgia;
+    background-color: transparent;
+    color: coral;
+    font-size: 20px;
+    font-weight: bold;
+    transform: rotate(-90deg);
+    transform-origin: -2% 5%;
+}
 hr { 
     display: block;
     margin-top: 0.5em;

@@ -73,14 +73,23 @@ with open('ds.csv') as csvfile:
                 sectionid = sectionid + 1
                 #index.write("<section id=\"section-"+str(sectionid)+"\">>\r\n")
                 index.write("<section >\r\n")
-             index.write("<br><br>\r\n")
-             #new year  
-             yearcount = 0
-             index.write("<a id=\"y" + year + "\"></a><br></p>\r\n")
-             index.write("<p> <hr> <br> <h2> " + year + " </h2> <br>\r\n")
+                index.write("<br><br>\r\n")
+                #new year  
+                yearcount = 0
+                index.write("<a id=\"y" + year + "\"></a><br></p>\r\n")
+                index.write("<p> <hr> <br> <h2> " + year + " </h2> <br>\r\n")
+                #https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sticky_element
+                index.write("<div class=\"sticky\">"+livinglocation+"</div> \r\n") #start new living location
+             else:
+                index.write("<br><br>\r\n")
+                #new year  
+                yearcount = 0
+                index.write("<a id=\"y" + year + "\"></a><br></p>\r\n")
+                index.write("<p> <hr> <br> <h2> " + year + " </h2> <br>\r\n")
              index.write("<table>\r\n")
          elif year != row['Object Begin Date']: # only when year == 0 
              year = row['Object Begin Date']
+             index.write("\r\n<div class=\"sticky\">Nuremberg</div> \r\n") #start new living location
              index.write("<a id=\"y" + year + "\"></a><br></p><br>\r\n")
              index.write("<p> <br> <h2> " + year + " </h2> <br>\r\n")
              index.write("<table>\r\n")
