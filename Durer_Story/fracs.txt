@@ -1,0 +1,97 @@
+<!DOCTYPE html><html class="no-js" lang="en" data-page="jquery-fracs">
+
+<head><meta charset="utf-8">
+
+<title>jQuery.fracs · determine the visible fractions of an HTML element · larsjung.de</title>
+
+<meta name="description" content="determine the visible fractions of an HTML element">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Lars Jung">
+
+<link rel="author" href="//larsjung.de">
+<link rel="author" href="//twitter.com/lrsjng">
+<link rel="author" href="//github.com/lrsjng">
+<link rel="shortcut icon" href="/_assets_447407ca4a8ecde6e5a3606431861796f73d8c67/images/icon-16-48.ico">
+<link rel="icon" href="/_assets_447407ca4a8ecde6e5a3606431861796f73d8c67/images/icon.svg" sizes="48x48">
+<link rel="apple-touch-icon-precomposed" href="/_assets_447407ca4a8ecde6e5a3606431861796f73d8c67/images/icon.svg">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml"><script>document.documentElement.className=''</script>
+<link rel="stylesheet" href="/_assets_447407ca4a8ecde6e5a3606431861796f73d8c67/css/styles.css">
+
+</head>
+
+<body>
+<aside class="left">
+<div id="sidemenu">
+<nav><ul><li class="home">
+<a href="/" title="larsjung.de">
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><path d="M256 28 496 202 404 484 108 484 16 202z">
+</path></svg></a></li></ul><ul><li class="page">
+
+<a href="/buz/" title="list JS file sizes - babeled, uglified and zipped">buz</a></li>
+
+<li class="page"><a href="/domain-icons/" title="display icons next to Google search results">Domain Icons</a></li>
+<li class="page"><a href="/ghor/" title="dependency injection tool">ghor</a></li>
+<li class="page"><a href="/ghu/" title="promising build system">ghu</a></li>
+<li class="page"><a href="/h5ai/" title="modern HTTP web server index">h5ai</a></li>
+<li class="page"><a href="/jquery-fracs/" title="determine the visible fractions of an HTML element">jQ.fracs</a></li>
+<li class="page"><a href="/jquery-qrcode/" title="generate QR codes dynamically">jQ.qrcode</a></li>
+<li class="page"><a href="/jquery-scrollpanel/" title="simple vertical scrollpanel">jQ.scrollpanel</a></li>
+<li class="page"><a href="/kjua/" title="dynamically generated QR codes">kjua</a></li>
+<li class="page"><a href="/lo/" title="lightweight utility library for the browser">lo</a></li>
+<li class="page"><a href="/lolight/" title="tokenizer and syntax highlighter">lolight</a></li>
+<li class="page"><a href="/modulejs/" title="lightweight JavaScript module system">modulejs</a></li>
+<li class="page"><a href="/pagemap/" title="mini map for web pages">pagemap</a></li>
+<li class="page"><a href="/scar/" title="test runner for Node.js and the browser">scar</a></li></ul></nav>
+
+<div class="links social">
+
+<h2>find me</h2>
+
+<a href="//github.com/lrsjng">GitHub</a>
+<a href="//twitter.com/lrsjng">Twitter</a>
+<a href="//keybase.io/lrsjng">Keybase</a><a href="/feed.xml">RSS·Feed</a></div>
+
+<div class="links"><h2>write me</h2><a class="obfusma2" href="?">lrsj<i>i</i>ng<i>o</i>@gmai<i>e</i>l.c<i>d</i>om</a></div>
+
+<div class="links"><h2>buy me a beer</h2>
+<a class="paypal-btn" href="#">PayPal</a></div><div class="links">
+
+<a class="soft" href="/disclaimer/"><span class="copyright">© 2018 Lars Jung</span> imprint &amp; disclaimer</a></div></div></aside>
+
+<aside class="right"><canvas class="hideOnNoJs" id="pagemap" width="120" height="400"></canvas></aside>
+
+<main>
+
+<header><h1>jQuery.fracs</h1><h2>determine the visible fractions of an HTML element</h2></header>
+
+<div id="badges"><a class="badge" href="//github.com/lrsjng/jquery-fracs" title="read the license on GitHub"><span class="key">license</span><span class="val">MIT</span></a><a class="badge" href="//github.com/lrsjng/jquery-fracs" title="the project on GitHub"><span class="key">github</span><span class="val">lrsjng/jquery-fracs</span></a></div><section><a class="version download button release" href="//release.larsjung.de/jquery-fracs/jquery-fracs-0.15.0.zip">0.15.0</a><p><strong>jQuery.fracs</strong> determines some fractions for an HTML element (visible fraction, fraction of the viewport, ...) and also provides the coordinates of these areas. As a bonus there is a page outline feature as seen on the right.</p><p>See the <a href="latest/demo/" title="demo of the latest version">demo</a> to get an impression of some of the features.</p></section><section><h2>Getting started</h2><p>To use the core lib include <code>jquery.fracs-0.15.0.js</code>. The outline feature is implemented in <code>jquery.outline-0.15.0.js</code> and depends on the core lib (you'll need to include both files).</p>
+
+<h3>Fractions</h3><p>To retrieve the fractions of an element use:</p><pre><code class="lolight">var fracs = $(selector).fracs();
+</code></pre><p>this will return an object of type <a href="//github.com/lrsjng/jquery-fracs/blob/master/src/jquery.fracs.js#L221-287">
+
+<code>Fractions</code></a>.</p><p>Or bind a callback function:</p>
+<pre><code class="lolight">function callback(fracs: Fractions, previousFracs: Fractions) {
+    ...
+    // context variable *this* will be the corresponding HTMLElement
+    ...
+};
+
+$(selector).fracs(callback);
+</code></pre><p>The callback function will be called whenever <code>fracs</code> and <code>previousFracs</code> are unequal. A check will be triggered on every window resize or window scroll event. To trigger it manually use</p><pre><code class="lolight">$(selector).fracs('check');
+
+</code></pre><h3>Document Outline</h3><p>Add a canvas to your document (use a fixed position to keep it in viewport)</p><pre><code class="lolight">&lt;canvas id='outline' width='200' height='400'&gt;&lt;/canvas&gt;
+</code></pre><p>and then in your javascript initialize the outline with some <code>OutlineOptions</code>, for example</p><pre><code class="lolight">$('#outline').fracs('outline', {
+    crop: true,
+    styles: [
+        {
+            selector: 'header,footer,section,article',
+            fillStyle: 'rgb(230,230,230)'
+        },
+        {
+            selector: 'h1',
+            fillStyle: 'rgb(240,140,060)'
+        }
+    ]
+});
+
+</code></pre></section><section><h2>API</h2><p>Currently there is only the <a href="//github.com/lrsjng/jquery-fracs/blob/master/src/jquery.fracs.js#L649-995" title="documented source code on GitHub">documented source code</a>.</p></section></main><div id="fail"><span class="noJsMsg">Works best with JavaScript enabled!</span><a class="noBrowserMsg" href="http://browsehappy.com">Works best in modern browsers!</a></div><div class="paypal"><form class="paypal-form" action="//www.paypal.com/cgi-bin/webscr" method="post" target="_blank"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="lc" value="US"><input type="hidden" name="hosted_button_id" value="8WSPKWT7YBTSQ"></form></div><script src="/_assets_447407ca4a8ecde6e5a3606431861796f73d8c67/js/scripts.js"></script></body></html><!-- larsjung.de v5.38.0 - © Lars Jung -->

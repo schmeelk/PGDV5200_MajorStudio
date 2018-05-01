@@ -22,14 +22,14 @@ with open("header.txt") as script:
 
 index.write("<a id=\"top\"></a>")
 index.write("\r\n")
-index.write("<br> <h1>Albrecht D&uuml;rer Story in The Met</h1> ")
+index.write("<br> <h1>Albrecht D&uuml;rer's Story in The Met</h1> ")
 index.write("\r\n")
 
 #Durer birth
 index.write("<hr> <hr>")
 #index.write("<p> <br> <h2> 1471 </h2> <br> <br> <section id=\"section-1\"> <Nuremberg> \r\n")
 index.write("<p> <br> <h2> 1471 </h2> <br> <br> <section> <Nuremberg> \r\n")
-index.write("<life> May 21 Born in Nuremberg, Germany </life> </p> <br>\r\n")
+index.write("<life> &#09; May 21 D&uuml;rer Born in Nuremberg, Germany </life> </p> <br>\r\n")
 index.write("<hr><hr><br>")
 
 with open('ds.csv') as csvfile:
@@ -55,15 +55,15 @@ with open('ds.csv') as csvfile:
              index.write("<tr> " + tagline + "</tr>\r\n")
              tagline = ''
              td = 4 
-             index.write("</table><br><br>\r\n")
              #end last year table
              dline = open('dhistory/'+(lastprocessedyear)+'.txt').read().splitlines()
              durLife = random.choice(dline)
              if durLife != '':
-                index.write("<br><life> " + durLife + "</life><br><br>")
+               index.write("<tr> <td colspan=\"4\"> <br><life> D&uuml;rer's Life: " + durLife + "</life><br><br> </td> </tr>")
              wline = open('history/'+lastprocessedyear+'.txt').read().splitlines()
              durWorld = random.choice(wline)
-             index.write("<br><world> " + durWorld + "</world><br>")
+             index.write("<tr> <td colspan=\"4\"> <br><world> World History: " + durWorld + "</world><br> </td> </tr>")
+             index.write("</table><br><br>\r\n")
              #end last year history 
              if row['Living'] != livinglocation:
                 index.write("</"+livinglocation+"> \r\n") #end old living location
@@ -140,10 +140,10 @@ index.write("</table><br><br>\r\n")
 dline = open('dhistory/'+(lastprocessedyear)+'.txt').read().splitlines()
 durLife = random.choice(dline)
 if durLife != '':
-  index.write("<br><life> " + durLife + "</life><br><br>")
+  index.write("<br><life> D&uuml;rer's Life: " + durLife + "</life><br><br>")
 wline = open('history/'+lastprocessedyear+'.txt').read().splitlines()
 durWorld = random.choice(wline)
-index.write("<br><world> " + durWorld + "</world><br>")
+index.write("<br><world> World History: " + durWorld + "</world><br>")
 #end last year history 
 if row['Living'] != livinglocation:
      index.write("</"+livinglocation+"> \r\n") #end old living location

@@ -3,19 +3,19 @@ div.sticky {
     position: sticky;
     top: 150px;
     font-family: 'Old Standard TT', serif; Georgia;
-    background-color: transparent;
     color: coral;
     font-size: 20px;
+    margin-left: -3%;
     font-weight: bold;
     transform: rotate(-90deg);
-    transform-origin: -2% 5%; 
+    transform-origin: -2% 50%; 
 }
 hr { 
     display: block;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     margin-left: 1%;
-    margin-right: 10%;
+    margin-right: 5%;
     border-style: inset;
     padding-left: 5em
     border-width: 1px;
@@ -28,9 +28,9 @@ body {
     background-color: #ffffe6;
     font-family: 'Old Standard TT', serif; Georgia;
     margin-left: 10%;
-    margin-right: 5%;
+    margin-right: 1%;
     background-color: #ffffea;
-    padding-left: 12em;
+    padding-left: 15em;
 }
 
 life {
@@ -61,7 +61,7 @@ world {
     font-family: 'Old Standard TT', serif; Georgia;
     color: navy;
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
   }
 
   h2{
@@ -69,6 +69,8 @@ world {
     color: #003366;    
     margin-bottom: -1em;
     padding-left: 1em;
+    padding-bottom: 1em;
+    font-size:30px;
     }
   h3{
     font-family: 'Old Standard TT', serif; Georgia;
@@ -119,7 +121,7 @@ table {
     #border: 1px solid black;
     padding: 25px;
     align: center;
-    width: 90%;
+    width: 80%;
 }
 tr {
     padding: 50px;
