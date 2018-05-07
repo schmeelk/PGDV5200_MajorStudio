@@ -51,11 +51,10 @@ body {
     font-size: 13px;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     color: black;
-    background-color: #ffffe6;
     font-family: 'Old Standard TT', serif; Georgia;
     margin-left: 10%;
     margin-right: 1%;
-    background-color: #ffffea;
+    background-color: white;
     padding-left: 15em;
 }
 

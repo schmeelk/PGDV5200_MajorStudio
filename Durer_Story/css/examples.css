@@ -354,8 +354,7 @@ form.move {
 	top: 70px;
 	left: 20px;
 	display: block;
-	background-color: white;
-	background-color: rgba(255, 255, 255, 0.9);
+	background-color: #FFFBF2;
 	border-radius: 4px;
 	padding: 5px;
 	z-index: 20;
