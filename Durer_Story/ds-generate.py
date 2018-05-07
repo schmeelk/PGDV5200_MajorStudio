@@ -29,7 +29,9 @@ index.write("\r\n")
 index.write("<hr> <hr>")
 #index.write("<p> <br> <h2> 1471 </h2> <br> <br> <section id=\"section-1\"> <Nuremberg> \r\n")
 index.write("<p> <br> <h2> 1471 </h2> <br> <br> <section> <Nuremberg> \r\n")
-index.write("<life> &#09; May 21 D&uuml;rer Born in Nuremberg, Germany </life> </p> <br>\r\n")
+index.write("<table><tr><td> \r\n")
+index.write("<life> &#09; May 21 D&uuml;rer Born in Nuremberg, Germany. He was a painter, printmaker, and theorist of the German Renaissance. D&uuml;rer established his reputation and influence across Europe when he was still in his twenties due to his high-quality woodcut prints. He was in communication with the major Italian artists of his time, including Raphael, Giovanni Bellini and Leonardo da Vinci, and from 1512 he was patronized by emperor Maximilian I. D&uuml;rer is commemorated by both the Lutheran and Episcopal Churches. </life> </p> <br>\r\n")
+index.write("</td></tr></table></p>")
 index.write("<hr><hr><br>")
 
 with open('ds.csv') as csvfile:
@@ -62,14 +64,16 @@ with open('ds.csv') as csvfile:
                index.write("<tr> <td colspan=\"4\"> <br><life> D&uuml;rer's Life: " + durLife + "</life><br><br> </td> </tr>")
              wline = open('history/'+lastprocessedyear+'.txt').read().splitlines()
              durWorld = random.choice(wline)
-             index.write("<tr> <td colspan=\"4\"> <br><world> World History: " + durWorld + "</world><br> </td> </tr>")
+             if durWorld != '':
+                index.write("<tr> <td colspan=\"4\"> <br><world> World History: " + durWorld + "</world><br> </td> </tr>")
              index.write("</table><br><br>\r\n")
              #end last year history 
              if row['Living'] != livinglocation:
                 index.write("</"+livinglocation+"> \r\n") #end old living location
                 index.write("</section>\r\n")
                 livinglocation = row['Living']
-                index.write("<"+livinglocation+"> \r\n") #start new living location
+                if livinglocation != '':
+                   index.write("<"+livinglocation+"> \r\n") #start new living location
                 sectionid = sectionid + 1
                 #index.write("<section id=\"section-"+str(sectionid)+"\">>\r\n")
                 index.write("<section >\r\n")
@@ -103,7 +107,34 @@ with open('ds.csv') as csvfile:
          if ((yearcount - 1 )  == 0) or (td == 4):
             index.write("<tr>\r\n") 
          if row['Series'] != '':
-           tagline = tagline + "<td valign=\"middle\"> " + row['Series'] + " </td> "
+           if row['Series'] == 'The Apocalypse' :
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'The Small Woodcut Passion':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'Ritter von Turn':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'Sebastian Brandt':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'The Comedies of Terence':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'Vier Bucher von Menslicher':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'Revelations Sancte Birgitte':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'The Life of the Virgin':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'Treatise on Fortification':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'The Large Passion':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'Opera Hrosvita':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'The Small Passion':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           elif row['Series'] == 'The Passion':
+             tagline = tagline + "<td valign=\"middle\"><div class=\"tooltip\"> " + row['Series'] + " <span class=\"tooltiptext\">Series</span></td> "
+           else:
+             tagline = tagline + "<td valign=\"middle\"> " + row['Series'] + " </td> "
          else:
            tagline = tagline + "<td> </td> "
 
@@ -140,10 +171,14 @@ index.write("</table><br><br>\r\n")
 dline = open('dhistory/'+(lastprocessedyear)+'.txt').read().splitlines()
 durLife = random.choice(dline)
 if durLife != '':
+  index.write("<table><tr><td> \r\n")
   index.write("<br><life> D&uuml;rer's Life: " + durLife + "</life><br><br>")
+  index.write("</table></tr></td> \r\n")
 wline = open('history/'+lastprocessedyear+'.txt').read().splitlines()
 durWorld = random.choice(wline)
+index.write("<table><tr><td> \r\n")
 index.write("<br><world> World History: " + durWorld + "</world><br>")
+index.write("</table></tr></td> \r\n")
 #end last year history 
 if row['Living'] != livinglocation:
      index.write("</"+livinglocation+"> \r\n") #end old living location
