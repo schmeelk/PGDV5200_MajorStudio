@@ -152,7 +152,18 @@ tr {
     padding: 50px;
 
 }
+
 td {
+    font-size: 15px;
+    padding: 25px;
+    vertical-align: center;
+    text-align: center;
+    width: 200px;
+    width: 200px;
+}
+
+
+td.history {
     font-size: 15px;
     padding: 25px;
     vertical-align: center;
