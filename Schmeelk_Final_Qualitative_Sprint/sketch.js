@@ -44,7 +44,7 @@ function setup() {
   console.log("Here we are.");
   prepareDurImages();
   prepareAllImages();
-  buttonLeft = createButton('Dürer Earler Years');
+  buttonLeft = createButton('Dürer Earlier Years');
   buttonLeft.position(0, windowHeight/2);
   buttonLeft.mousePressed(changeEarlier);
   buttonRight = createButton('Dürer Later Years');
